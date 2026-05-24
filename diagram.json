@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -95.4, "left": 229.8, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 234.22, "left": 309.52, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -208.8,
+      "left": 145.8,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 171.5, "left": 182.2, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 185.54,
+      "left": 432.23,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -166.6,
+      "left": 470.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -32.4,
+      "left": -44.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -82.45,
+      "left": -19.2,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "imu1:VCC", "uno:5V", "orange", [ "v0" ] ],
+    [ "imu1:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "imu1:SDA", "uno:A4", "blue", [ "v-86.4", "h115.28", "v-57.5" ] ],
+    [ "imu1:SCL", "uno:A5", "magenta", [ "v-76.8", "h120.58" ] ],
+    [ "oled1:GND", "uno:GND.3", "black", [ "v-19.2", "h-67.2", "v-76.7" ] ],
+    [ "oled1:VCC", "uno:5V", "white", [ "h0.15", "v-67.2", "h-90.2" ] ],
+    [ "oled1:SCL", "uno:A5", "yellow", [ "v0" ] ],
+    [ "oled1:SDA", "uno:A4", "cyan", [ "v-19.2", "h0.07", "v-57.6", "h-23.4" ] ],
+    [ "pot1:GND", "uno:GND.2", "violet", [ "v-124.8", "h188.1" ] ],
+    [ "pot1:VCC", "uno:5V", "cyan", [ "v-86.4", "h158.6" ] ],
+    [ "pot1:SIG", "uno:A0", "blue", [ "v-115.2", "h216.6" ] ],
+    [ "bz1:2", "uno:8", "red", [ "h18.8", "h201.2" ] ],
+    [ "bz1:1", "uno:GND.1", "yellow", [ "v19.2", "h172.5" ] ],
+    [ "uno:13", "r1:2", "black", [ "v9.6", "h-316.4" ] ],
+    [ "r1:1", "led1:C", "gold", [ "h-38.4", "v163.2" ] ],
+    [ "btn1:1.l", "uno:7", "white", [ "h0" ] ],
+    [ "led1:A", "uno:GND.2", "red", [ "v9.6", "h418.5" ] ],
+    [ "btn1:2.r", "uno:GND.1", "violet", [ "v57.8", "h-191.8", "v-9.6" ] ]
+  ],
+  "dependencies": {}
+}
